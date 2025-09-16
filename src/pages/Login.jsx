@@ -9,6 +9,7 @@ export const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         senha: ''
+
     });
 
     const login = e => {
@@ -33,12 +34,28 @@ export const Login = () => {
         }));
     };
 
-    const handleEmail = (e) => {
-        console.log(e.target.value)
+    /* const handleEmail = (e) => {
+        console.log(e.target.id, e.target.value)
+
+        setFormData({
+            email: e.target.value
+        })
     }
 
     const handleSenha = (e) => {
-        console.log(e)
+        console.log(e.target.id, e.target.value)
+
+        setFormData({
+            senha: e.target.value
+        })
+    } */
+
+    const handleInput = (e) => {
+        console.log(e.target.id, e.target.value)
+
+        setFormData({
+            [e.target.id]: e.target.value
+        })
     }
 
     return (
@@ -53,7 +70,8 @@ export const Login = () => {
                     type='email'
                     placeholder="name@example.com"
                     value={formData.email}
-                    onChange={handleEmail}
+                    //onChange={handleEmail}
+                    onChange={handleInput}
                 />
 
                 <InputField
@@ -62,9 +80,8 @@ export const Login = () => {
                     type='password'
                     placeholder="senha"
                     value={formData.senha}
-                    onChange={handleSenha}
-
-
+                    //onChange={handleSenha}
+                    onChange={handleInput}
                 />
 
 
